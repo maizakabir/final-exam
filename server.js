@@ -1,26 +1,42 @@
-var express = require ('express');
+var http = require('http');
+var express = require('express');
 var app = express();
-var server = require ('http').Server(app);
+var server = http.Server(app);
+var bodyParser = require('body-parser');
+var path = require('path');
 
-server.listen (process.env.PORT, process.env.IP, function (){
-    console.log ('Server running');
-});
+//where mongodb is running
+var db; 
+var db_url = "mongodb://" + process.env.IP + ":27017"
 
-//middleware for body-parser
-app.use (bodyParser.json());
-app.use (bodyParser.urlencoded ({extended: false}));
+//install mongoose
+var mongoose = require("mongoose");
 
-//mongoDB
-var db;
-var db_url= "mongodb://" + process.env.IP + ":27017";
-
-
-//connecting mongoose to mongoDB
-mongoose.connect(db_url + "chatusers");
+//connecting to mongoose
+mongoose.connect(db_url+"/user");
 mongoose.connection.on('error', function(){
-  console.log ("Could not connect to MongoDB");
+console.log('Could not connect to mongodb');
 });
 
-app.get ('/index', function (req, res){
-  res.sendFile (__dirname + '/index.html');
+//configuring app with bodyParser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+
+// Setting up views:
+app.set('view engine', 'html');
+
+app.get('/', function(request, response){
+response.send('');
 });
+
+// app.get('/', function(request, response){
+// response.render('');
+// });
+
+//bring in article routes
+// require('./routes/article-routes.js')(app);
+
+server.listen(process.env.PORT || 3000, process.env.IP, function(){ 
+console.log('Server running');
+});
+

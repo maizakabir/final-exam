@@ -6,9 +6,9 @@
     
 <body>
     <h1>NEW REVIEW</h1>
-    <input type="text" id="reviewer-name" placeholder= "REVIEWER NAME"><br/>
+    <input type="text" id="reviewer_name" placeholder= "REVIEWER NAME"><br/>
     <input type= "number" name= "rating" placeholder= "RATING (1 TO 5)" min= "1" max= "5" required><br/><br/>
-    <textarea id= "content" placeholder= "REVIEW CONTENT"></textarea><br/>
+    <textarea id= "comment" placeholder= "REVIEW CONTENT"></textarea><br/>
     <button id="submit">ADD</button>
 
     <script
@@ -18,11 +18,11 @@
     
     <!--input handling and ajax-->
     <script>
-        var form = {name: "", rating: "", conten: ""};
+        var form = {reviewer_name: "", rating: "", comment: ""};
         $('#submit').click(function(event){
-            form.name = $('#reviewer-name').val();
+            form.reviewer_name = $('#reviewer_name').val();
             form.rating = $('#rating').val();
-            form.content = $('#content').val();
+            form.comment = $('#comment').val();
             $.ajax({
                 method:"POST",
                 url:"/form/create",
