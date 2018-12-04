@@ -1,26 +1,26 @@
-var http = require('http');
-var express = require('express');
+var express = require ('express');
 var app = express();
-var server = http.Server(app);
-var bodyParser = require('body-parser');
+var server = require ('http').Server(app);
 
-//Required middleware for body-parser
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
-
-
-
-app.get('/', function(request, response){ /*'/' means root route*/
-  response.render('index.ejs');   /*__dirname is the root address*/
+server.listen (process.env.PORT, process.env.IP, function (){
+    console.log ('Server running');
 });
 
-app.get('/about-page', function(request, response){ /*'/' means root route*/
-  response.sendFile('about.ejs');   /*__dirname is the root address*/
+//middleware for body-parser
+app.use (bodyParser.json());
+app.use (bodyParser.urlencoded ({extended: false}));
+
+//mongoDB
+var db;
+var db_url= "mongodb://" + process.env.IP + ":27017";
+
+
+//connecting mongoose to mongoDB
+mongoose.connect(db_url + "chatusers");
+mongoose.connection.on('error', function(){
+  console.log ("Could not connect to MongoDB");
 });
 
-//get remaing routes from article-routes file
-require('./routes/article-routes.js')(app);
-
-server.listen(process.env.PORT, /* || 3000 (for local host)*/ process.env.IP, /* || 'localhost' */ function(){
-  console.log('Server running');
+app.get ('/index', function (req, res){
+  res.sendFile (__dirname + '/index.html');
 });
