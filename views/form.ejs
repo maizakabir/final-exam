@@ -1,8 +1,21 @@
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>Form</title>
+    <% include partials/header %>
+    <head>
+    <title>Add Item</title>
+    <style>
+    body{
+    color: #BEBEBE;
+    margin-top:150px;
+    background-color: #D1EEEE;
+    }
+    button{
+    background-color: black;
+    color: white;
+    width: 100px;
+    }
+    </style>
 </head>
+
     
 <body>
     <h1>NEW REVIEW</h1>
@@ -25,7 +38,7 @@
             form.comment = $('#comment').val();
             $.ajax({
                 method:"POST",
-                url:"/form/create",
+                url:"/user/create",
                 data: form
             }).done(function(response){
                 console.log(response);
@@ -37,7 +50,7 @@
         $('#getArticles').click (function(event){
             $.ajax({
                 method:"GET",
-                url:"/article/list"
+                url:"/user/list"
             }).done(function(response){
                 console.log(response);
             }).fail(function(response){

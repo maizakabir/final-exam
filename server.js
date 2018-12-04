@@ -25,9 +25,13 @@ app.use(bodyParser.urlencoded({extended:true}));
 // Setting up views:
 app.set('view engine', 'html');
 
-app.get('/', function(request, response){
-response.send('');
+app.get('/', function(request, response){ /*'/' means root route*/
+  response.render('form.ejs');   /*__dirname is the root address*/
 });
+
+
+//get remaing routes from article-routes file
+require('./routes/user-routes.js')(app);
 
 // app.get('/', function(request, response){
 // response.render('');

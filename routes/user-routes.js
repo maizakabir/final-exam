@@ -4,10 +4,10 @@ module.exports = function (app){
     
     app.get('/new-user', user.new);
     
-    app.post('/article/create', user.create);
+    app.post('/user/create', user.create);
     
     
-    app.get('/article/list', user.list);
+    app.get('/user/list', user.list);
     
-    app.get('/article/:articleID', user.single);
+    app.get('/user/:userID', user.single);
 }
