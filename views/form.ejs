@@ -31,15 +31,15 @@
     
     <!--input handling and ajax-->
     <script>
-        var form = {reviewer_name: "", rating: "", comment: ""};
+        var user = {reviewer_name: "", rating: "", comment: ""};
         $('#submit').click(function(event){
-            form.reviewer_name = $('#reviewer_name').val();
-            form.rating = $('#rating').val();
-            form.comment = $('#comment').val();
+            user.reviewer_name = $('#reviewer_name').val();
+            user.rating = $('#rating').val();
+            user.comment = $('#comment').val();
             $.ajax({
                 method:"POST",
                 url:"/user/create",
-                data: form
+                data: user
             }).done(function(response){
                 console.log(response);
             }).fail(function(response){
@@ -47,7 +47,7 @@
             });
         });
         
-        $('#getArticles').click (function(event){
+        $('#getUser').click (function(event){
             $.ajax({
                 method:"GET",
                 url:"/user/list"
