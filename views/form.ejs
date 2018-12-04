@@ -1,7 +1,7 @@
 <html>
     <% include partials/header %>
     <head>
-    <title>Add Item</title>
+    <title>New Reviewer</title>
     <style>
     body{
     color: #BEBEBE;
@@ -18,11 +18,13 @@
 
     
 <body>
-    <h1>NEW REVIEW</h1>
-    <input type="text" id="reviewer_name" placeholder= "REVIEWER NAME"><br/>
-    <input type= "number" name= "rating" placeholder= "RATING (1 TO 5)" min= "1" max= "5" required><br/><br/>
-    <textarea id= "comment" placeholder= "REVIEW CONTENT"></textarea><br/>
-    <button id="submit">ADD</button>
+    <div class = "container" align= "center">
+        <h1>NEW REVIEW</h1>
+        <p><input type="text" id="reviewer_name" placeholder= "REVIEWER NAME"></p>
+        <p><input type= "number" name= "rating" placeholder= "RATING (1 TO 5)" min= "1" max= "5" required></p>
+        <p><textarea id= "comment" placeholder= "REVIEW CONTENT"></textarea></p>
+        <button id="submit">ADD</button>
+    </div>
 
     <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
