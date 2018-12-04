@@ -1,0 +1,27 @@
+{
+  "name": "final-exam",
+  "version": "1.0.0",
+  "description": "Final exam-user review",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maizakabir/final-exam.git"
+  },
+  "author": "Maiza Kabir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maizakabir/final-exam/issues"
+  },
+  "homepage": "https://github.com/maizakabir/final-exam#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.7"
+  }
+}
